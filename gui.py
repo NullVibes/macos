@@ -17,7 +17,7 @@ def check_brew():
     if brewo.find("Homebrew") > 0:
         f.write("brew=yes")
     else:
-        f.write("brew=no")
+        f.write("brew="brewo)
     f.close()
 
 def app_layout(self):
