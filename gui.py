@@ -13,12 +13,12 @@ def show(widget):
 def check_brew():
     brewv = subprocess.run(["brew --version"], shell=True, text=True, capture_output=True)
     brewo = str(brewv.stdout)
+    f = open("/tmp/appseloptions.txt", "a")
     if brew.find("Homebrew") > 0:
-      pass
+        f.write("brew=yes")
     else:
-      print("No Brew found.")
-      
-    lstBox1.insert(END, str(result.stdout))
+        f.write("brew=no")
+    f.close()
 
 def app_layout(self):
     cApp1.pack_forget()
@@ -106,4 +106,5 @@ app_layout(cMenu)
 f = open("/tmp/appseloptions.txt", "w")
 f.write("")
 f.close()
+check_brew()
 window.mainloop()
