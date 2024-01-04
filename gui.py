@@ -16,7 +16,7 @@ def check_brew():
     f = open("/tmp/appseloptions.txt", "a")
     if brewo.count("Homebrew") > 0:
         f.write("brew=yes")
-        pytk = str(subprocess.run(["brew list | grep python-tk"], shell=True, text=True, capture_output=True))
+        pytk = str(subprocess.run(["brew list | grep python-tk"], shell=True, text=True, capture_output=True).stdout)
         print(pytk)
     else:
         f.write("brew=no")
