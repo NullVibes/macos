@@ -25,6 +25,11 @@ def check_brew():
         pytk = str(subprocess.run(['/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'], shell=True, text=True, capture_output=True).stdout)
     f.close()
 
+def check_xperm():
+    checkx1 = str(subprocess.run(["ls -l mac_lockdown.sh | cut -d ' ' -f1"], shell=True, text=True, capture_output=True))
+    if checkx1.count < 1:
+        fixx1 = str(subprocess.run(["chmod +x mac_lockdown.sh"], shell=True, text=True, capture_output=True))
+
 def app_layout(self):
     cApp1.pack_forget()
     #cApp2.pack_forget()
@@ -112,4 +117,5 @@ f = open("/tmp/appseloptions.txt", "w")
 f.write("")
 f.close()
 check_brew()
+check_xperm()
 window.mainloop()
