@@ -17,7 +17,7 @@ def check_brew():
     if brewo.count("Homebrew") > 0:
         f.write("brew=yes")
         pytk = str(subprocess.run(["brew list | grep python-tk"], shell=True, text=True, capture_output=True).stdout)
-        if pytk.count("python-tk") < 0:
+        if pytk.count("python-tk") < 1:
             pyinsttk = str(subprocess.run(["brew install python-tk"], shell=True, text=True, capture_output=True).stdout)
             print(pyinsttk)
     else:
@@ -27,7 +27,7 @@ def check_brew():
 
 def check_xperm():
     checkx1 = subprocess.run(["ls -l mac_lockdown.sh | cut -d ' ' -f1"], shell=True, text=True, capture_output=True)
-    if checkx1.stdout.count < 1:
+    if checkx1.count("x") < 1:
         fixx1 = str(subprocess.run(["chmod +x mac_lockdown.sh"], shell=True, text=True, capture_output=True))
 
 def app_layout(self):
