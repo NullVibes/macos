@@ -14,10 +14,10 @@ def check_brew():
     brewv = subprocess.run(["brew --version"], shell=True, text=True, capture_output=True)
     brewo = str(brewv.stdout)
     f = open("/tmp/appseloptions.txt", "a")
-    if brewo.count("Homebrew") == 0:
+    if brewo.count("Homebrew") > 0:
         f.write("brew=yes")
         pytk = str(subprocess.run(["brew list | grep python-tk"], shell=True, text=True, capture_output=True).stdout)
-        if pytk.count("python-tk") == 0:
+        if pytk.count("python-tk") > 0:
             pyinsttk = str(subprocess.run(["brew install python-tk"], shell=True, text=True, capture_output=True).stdout)
             print(pyinsttk)
     else:
