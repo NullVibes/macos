@@ -26,8 +26,10 @@ def check_brew():
     f.close()
 
 def check_xperm():
+    cmdpwd = subprocess.run(["pwd"], shell=True, text=True, capture_output=True)
     checkx1 = subprocess.run(["ls -l mac_lockdown.sh | cut -d ' ' -f1"], shell=True, text=True, capture_output=True)
     checkx1 = str(checkx1.stdout)
+    print(cmdpwd)
     if checkx1.count("x") < 1:
         fixx1 = str(subprocess.run(["chmod +x mac_lockdown.sh"], shell=True, text=True, capture_output=True))
 
