@@ -14,7 +14,7 @@ def check_brew():
     brewv = subprocess.run(["brew --version"], shell=True, text=True, capture_output=True)
     brewo = str(brewv.stdout)
     f = open("/tmp/appseloptions.txt", "a")
-    if brewo.find("Homebrew") > 0:
+    if brewo.count("Homebrew") > 0:
         f.write("brew=yes")
     else:
         f.write(str(brewo))
