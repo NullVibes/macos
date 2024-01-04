@@ -57,13 +57,13 @@ def open_app(appNum):
     if appNum == 0:
         cApp1.pack()
         cApp2.pack_forget()
-        result = subprocess.run(["ls","-l", "/dev/null"], capture_output=True, text=True)
+        result = subprocess.run(["sudo ./mac_lockdown.sh"], capture_output=True, text=True)
         lstBox1.insert(END, str(result.stdout))
     elif appNum == 1:
         cApp2.pack()
         cApp1.pack_forget()
-        result = subprocess.run(["sudo systemctl status kismet"], shell=True, text=True, capture_output=True)
-        lstBox1.insert(END, str(result.stdout))
+        result = subprocess.run(["sudo ./rev_ssh.sh"], shell=True, text=True, capture_output=True)
+        #lstBox1.insert(END, str(result.stdout))
     else:
         lstBox1.insert(END, str(appNum))
 
@@ -93,7 +93,7 @@ cApp2.pack_forget()
 cApp1 = Canvas(window, height=400, width=800, bg="#22303C", bd='0', borderwidth=0, highlightthickness=0)
 cApp1.place(x=0, y=0)
 
-lstBox1 = Listbox(cApp1, height=3, width=10, bd='0')
+lstBox1 = Listbox(cApp1, height=3, width=50, bd='0')
 #lstBox1.pack(side = LEFT, fill = BOTH)
 scrollbar1 = Scrollbar(cApp1)
 #scrollbar1.pack(side = RIGHT, fill = BOTH)
