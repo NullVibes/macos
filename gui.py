@@ -65,8 +65,10 @@ def open_app(appNum):
     if appNum == 0:
         cApp1.pack()
         cApp2.pack_forget()
-        result = subprocess.run(["sudo ./mac_lockdown.sh"], shell=True, capture_output=True, text=True)
-        lstBox1.insert(END, str(result.stdout))
+        #result = subprocess.run(["sudo ./mac_lockdown.sh"], shell=True, capture_output=True, text=True)
+        result = subprocess.run(["defaults read com.apple.CrashReporter DialogType"], shell=True, capture_output=True, text=True)
+        lstBox1.insert(END, "CrashReporter: " + str(result.stdout))
+        
     elif appNum == 1:
         cApp2.pack()
         cApp1.pack_forget()
