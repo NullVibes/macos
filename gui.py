@@ -19,7 +19,7 @@ def check_brew():
         pytk = str(subprocess.run(["brew list | grep python-tk"], shell=True, text=True, capture_output=True).stdout)
         if pytk.count("python-tk") < 1:
             pyinsttk = str(subprocess.run(["brew install python-tk"], shell=True, text=True, capture_output=True).stdout)
-            print(pyinsttk)
+            #print(pyinsttk.stdout)
     else:
         f.write("brew=no")
         pytk = str(subprocess.run(['/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'], shell=True, text=True, capture_output=True).stdout)
@@ -66,9 +66,12 @@ def open_app(appNum):
         cApp1.pack()
         cApp2.pack_forget()
         #result = subprocess.run(["sudo ./mac_lockdown.sh"], shell=True, capture_output=True, text=True)
-        result = subprocess.run(["defaults read com.apple.CrashReporter DialogType"], shell=True, capture_output=True, text=True)
-        lstBox1.insert(END, "CrashReporter: " + str(result.stdout))
-        
+        crashreporter = subprocess.run(["defaults read com.apple.CrashReporter DialogType"], shell=True, capture_output=True, text=True)
+        lstBox1.insert(END, "CrashReporter: " + str(crashreporter.stdout))
+        sirianalytics = subprocess.run(["ls -l ~/Library/Assistant/SiriAnalytics.db | cut -d ' ' -f1"], shell=True, capture_output=True, text=True)
+        lstBox1.insert(END, "CrashReporter: " + str(sirianalytics.stdout))
+        sirianalytics = subprocess.run(["ls -l ~/Library/Application\ Support/Quick\ Look | cut -d ' ' -f1"], shell=True, capture_output=True, text=True)
+        lstBox1.insert(END, "CrashReporter: " + str(sirianalytics.stdout))
     elif appNum == 1:
         cApp2.pack()
         cApp1.pack_forget()
