@@ -58,7 +58,7 @@ def app_layout(self):
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Separator object for asthetics
-    separator = ttk.Separator(x, orient='horizontal')
+    separator = ttk.Separator(self, orient='horizontal')
     self.separator.place(relx=0.47, rely=0, relwidth=0.2, relheight=1)
     
     # Add the actual Help button
