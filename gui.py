@@ -6,6 +6,7 @@
 #tkinter.simpledialog.askstring("Password", "Enter password:", show='*')
 
 from tkinter import *
+from tkinter import ttk
 import os, subprocess
 
 def hide(widget):
@@ -57,8 +58,8 @@ def app_layout(self):
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Separator object for asthetics
-    separator = window.Separator(x, orient='horizontal')
-    separator.place(relx=0.47, rely=0, relwidth=0.2, relheight=1)
+    separator = ttk.Separator(x, orient='horizontal')
+    self.separator.place(relx=0.47, rely=0, relwidth=0.2, relheight=1)
     
     # Add the actual Help button
     self.button.append(Button(self, text='Help ?', width=10, height=1, bd='0', command=window.destroy))
