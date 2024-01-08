@@ -59,7 +59,7 @@ def app_layout(self):
 
     # Separator object for asthetics
     separator = ttk.Separator(self, orient='horizontal')
-    self.separator.place(relx=0.47, rely=0, relwidth=0.2, relheight=1)
+    separator.place(relx=0.47, rely=0, relwidth=0.2, relheight=1)
     
     # Add the actual Help button
     self.button.append(Button(self, text='Help ?', width=10, height=1, bd='0', command=window.destroy))
