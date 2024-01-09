@@ -135,7 +135,7 @@ cMenu.pack()
 app_layout(cMenu)
 
 # Separator object for asthetics
-items = cMenu.find_all()
+items = cMenu.find("all")
 print(items)
 #separator = ttk.Separator(master=cMenu, orient='horizontal',)
 #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
