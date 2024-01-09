@@ -38,6 +38,13 @@ def check_xperm():
     if checkx1.count("x") < 1:
         fixx1 = str(subprocess.run(["chmod +x mac_lockdown.sh"], shell=True, text=True, capture_output=True))
 
+def absolute_x(widget):
+    if widget == widget.winfo_toplevel():
+        # top of the widget hierarchy for this window
+        return 0
+    print(widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent())))
+    return widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent()))
+
 def app_layout(self):
     cApp1.pack_forget()
     #cApp2.pack_forget()
@@ -45,13 +52,6 @@ def app_layout(self):
     self.label = []
     appList = ["Lockdown\nMacOS","SSH\nProxy"]
     x = 0
-
-    def absolute_x(widget):
-        if widget == widget.winfo_toplevel():
-            # top of the widget hierarchy for this window
-            return 0
-        print(widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent())))
-        return widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent()))
 
     # Dynamically add button objects to the canvas, based on the items in appList[]
     for i in range(len(appList)):
