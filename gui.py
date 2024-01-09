@@ -58,7 +58,7 @@ def app_layout(self):
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Separator object for asthetics
-    separator = ttk.Separator(master=self.grid, orient='HORIZONTAL',)
+    separator = ttk.Separator(master=self, orient='HORIZONTAL',)
     separator.place(relx=0, rely=0, relwidth=1, relheight=0.02)
     #self.grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
     
