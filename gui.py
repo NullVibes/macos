@@ -67,7 +67,7 @@ def app_layout(self):
     # Separator object for asthetics
         #items = cMenu.find("all")
         #print(items)
-    ttk.Separator(master=self, orient='horizontal').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
+    ttk.Separator(master=self, orient='horizontal', relheight=0.02).grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
     #separator.place(relx=self(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     
