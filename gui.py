@@ -60,14 +60,16 @@ def app_layout(self):
         self.button[i].grid(row=0, column=i, sticky=N+E+S+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Add an empty Label object for Help spacing
-    self.label.append(Label(self, text='', width=10, height=1, bd='0'))
+    self.label.append(Label(self, text='', width=10, height=0.5, bd='0'))
     self.label[0].config(bg="#22303C", highlightthickness=0, borderwidth=0)
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Separator object for asthetics
         #items = cMenu.find("all")
         #print(items)
-    ttk.Separator(master=self, orient='horizontal').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=0, padx=5, ipadx=0, ipady=0)
+    s = ttk.Style()
+    s.configure('TSeparator', foreground='#5daed7')
+    ttk.Separator(master=self, orient='horizontal', style='TSeparator').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=0, padx=5, ipadx=0, ipady=0)
     #separator.place(relx=self(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     
