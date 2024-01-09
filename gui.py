@@ -60,7 +60,7 @@ def app_layout(self):
         self.button[i].grid(row=0, column=i, sticky=N+E+S+W, pady=2, padx=10, ipadx=2, ipady=2)
 
     # Add an empty Label object for Help spacing
-    self.label.append(Label(self, text='', width=10, height=0.5, bd='0'))
+    self.label.append(Label(self, text='', width=10, height=1, bd='0'))
     self.label[0].config(bg="#22303C", highlightthickness=0, borderwidth=0)
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
