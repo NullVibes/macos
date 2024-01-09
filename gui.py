@@ -34,7 +34,7 @@ def check_xperm():
     cmdpwd = subprocess.run(["pwd"], shell=True, text=True, capture_output=True)
     checkx1 = subprocess.run(["ls -l mac_lockdown.sh | cut -d ' ' -f1"], shell=True, text=True, capture_output=True)
     checkx1 = str(checkx1.stdout)
-    print(cmdpwd)
+    #print(cmdpwd)
     if checkx1.count("x") < 1:
         fixx1 = str(subprocess.run(["chmod +x mac_lockdown.sh"], shell=True, text=True, capture_output=True))
 
@@ -45,6 +45,13 @@ def app_layout(self):
     self.label = []
     appList = ["Lockdown\nMacOS","SSH\nProxy"]
     x = 0
+
+    def absolute_x(widget):
+        if widget == widget.winfo_toplevel():
+            # top of the widget hierarchy for this window
+            return 0
+        print(widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent())))
+        return widget.winfo_x() + absolute_x(widget.nametowidget(widget.winfo_parent()))
 
     # Dynamically add button objects to the canvas, based on the items in appList[]
     for i in range(len(appList)):
@@ -59,7 +66,7 @@ def app_layout(self):
 
     # Separator object for asthetics
     separator = ttk.Separator(master=self, orient='horizontal',)
-    separator.place(relx=0, rely=0, relwidth=1, relheight=0.02)
+    separator.place(relx=absolute_x(self.button[i+1]), rely=0, relwidth=1, relheight=0.02)
     #self.grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
     
     # Add the actual Help button
