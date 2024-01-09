@@ -64,6 +64,13 @@ def app_layout(self):
     self.label[0].config(bg="#22303C", highlightthickness=0, borderwidth=0)
     self.label[0].grid(row=1, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
+    # Separator object for asthetics
+        #items = cMenu.find("all")
+        #print(items)
+    ttk.Separator(master=self, orient='horizontal').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
+    #separator.place(relx=self(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
+    #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
+    
     # Add the actual Help button
     self.button.append(Button(self, text='Help ?', width=10, height=1, bd='0', command=window.destroy))
     self.button[i+1].config(bg="#22303C", fg="#888888", highlightthickness=2, highlightbackground="orange", highlightcolor="orange")
@@ -133,13 +140,6 @@ cMenu.place(x=0, y=0)
 cMenu.pack()
 
 app_layout(cMenu)
-
-# Separator object for asthetics
-items = cMenu.find("all")
-print(items)
-#separator = ttk.Separator(master=cMenu, orient='horizontal',)
-#separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
-#self.grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
 
 #If-exists stuff here...
 f = open("/tmp/appseloptions.txt", "w")
