@@ -7,7 +7,7 @@
 
 from tkinter import *
 from tkinter import ttk
-from tkmacosx import Button
+#from tkmacosx import Button
 import os, subprocess
 
 def hide(widget):
