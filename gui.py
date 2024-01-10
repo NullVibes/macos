@@ -5,13 +5,10 @@
 #tk.Tk().withdraw()
 #tkinter.simpledialog.askstring("Password", "Enter password:", show='*')
 
-#from tkinter import *
-#from tkinter import ttk
-from tkmacosx import *
+from tkinter import *
+from tkinter import ttk
+from tkmacosx import Button
 import os, subprocess
-
-if os.name == "posix":
-    import ttkbootstrap as ttk  # woriking on mac
 
 def hide(widget):
     widget.pack_forget()
