@@ -70,7 +70,7 @@ def app_layout(self):
     s = ttk.Style()
     ttk.Separator(master=self, orient='horizontal', style='TSeparator').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=0, padx=5, ipadx=0, ipady=0)
     s.configure('TSeparator', background='#5daed7')
-    print(ttk.Separator.configure())
+    print(s.configure('TSeparator'))
     #separator.place(relx=self(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     
