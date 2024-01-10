@@ -68,16 +68,16 @@ def app_layout(self):
         #items = cMenu.find("all")
         #print(items)
     s = ttk.Style()
-    ttk.Separator(master=self, orient='horizontal', style='TSeparator').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=0, padx=5, ipadx=5, ipady=0)
+    ttk.Separator(master=self, orient='horizontal', style='TSeparator').grid(row=2, column=0, columnspan=(i+1), sticky=E+W, pady=0, padx=5, ipadx=0, ipady=0)
     s.configure('TSeparator', background='#5daed7')
-    print(ttk.Separator.configure)
+    print(ttk.Separator.configure())
     #separator.place(relx=self(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     #separator.place(relx=absolute_x(cMenu.button[i]), rely=0, relwidth=1, relheight=0.02)
     
     # Add the actual Help button
     self.button.append(Button(self, text='Help ?', width=10, height=1, bd='0', command=window.destroy))
     self.button[i+1].config(bg="#22303C", fg="#888888", highlightthickness=2, highlightbackground="orange", highlightcolor="orange")
-    self.button[i+1].grid(row=3, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=2, ipady=2)
+    self.button[i+1].grid(row=3, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=5, ipady=2)
     
 
 def open_app(appNum):
