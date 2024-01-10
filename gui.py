@@ -7,6 +7,7 @@
 
 from tkinter import *
 from tkinter import ttk
+from tkmacosx import Button
 import os, subprocess
 
 def hide(widget):
@@ -151,4 +152,5 @@ f.write("")
 f.close()
 check_brew()
 check_xperm()
+print(os.name)
 window.mainloop()
