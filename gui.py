@@ -76,7 +76,8 @@ def app_layout(self):
     
     # Add the actual Help button
     self.button.append(Button(self, text='Help ?', width=10, height=1, bd='0', command=window.destroy))
-    self.button[i+1].config(bg="#22303C", fg="#888888", highlightthickness=2, highlightbackground="orange", highlightcolor="orange")
+    #self.button[i+1].config(bg="#22303C", fg="#888888", highlightthickness=2, highlightbackground="orange", highlightcolor="orange")
+    self.button[i+1].config(bg="#5daed7", fg="#888888", highlightthickness=2, highlightbackground="orange", highlightcolor="orange")
     self.button[i+1].grid(row=3, column=0, columnspan=(i+1), sticky=E+W, pady=2, padx=10, ipadx=5, ipady=2)
     
 
